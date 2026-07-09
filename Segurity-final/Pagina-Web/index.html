@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Monitoreo de Red</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Iconos/sin-internet.png">
+    <!-- Importación de librería de visualización de datos (Chart.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Menú Lateral -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <!-- Ruta de la imagen -->
+            <img src="Logo/seguridad-mundial.png" alt="Logo Ciberseguridad">
+            <h2>Red de Seguridad</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">INICIO</a></li>
+                <li><a href="amenazas.html">DETALLES DE AMENAZAS</a></li>
+                <li><a href="informes.html">INFORMES</a></li>
+                <li><a href="integrantes.html">AUTOR</a></li>
+                <li><a href="informacion.html">INFORMACION</a></li>
+            </ul>
+        </nav>
+
+        <div class="contact-info">
+          <h4 class="contact-title">Nuestros Contactos</h4>
+
+            <div class="contact-item">
+                <img src="Logo/telefono.png" alt="telefono">
+                <span>+51 987 874 763</span></div>
+                <div class="contact-item">
+                    <img src="Logo/gmail.png" alt="gmail">
+                <span>soporte@gmail.com</span></div>
+        </div>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="content">
+        <header>
+            <h1>Plataforma de Monitoreo de Red - Ciberseguridad</h1>
+            <p>Panel de control en tiempo real (Beta)</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Gráfico 1: Control de Seguridad -->
+            <div class="card">
+                <h3>Control de Seguridad de Red (Tráfico)</h3>
+                <canvas id="trafficChart"></canvas>
+            </div>
+
+            <!-- Gráfico 2: Estado de Parches -->
+            <div class="card">
+                <h3>Estado de Parches de Equipos</h3>
+                <canvas id="patchChart"></canvas>
+            </div>
+
+            <!-- Tabla 1: Alertas Críticas -->
+            <div class="card">
+                <h3>Alertas Críticas (Últimas 24h)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Incidente</th>
+                            <th>IP Origen</th>
+                            <th>Criticidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alertsTableBody">
+                        <!-- El contenido se inyecta por JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabla 2: Log de Accesos -->
+            <div class="card">
+                <h3>Monitoreo de Acceso al Sistema</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usuario / ID</th>
+                            <th>Timestamp</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accessTableBody">
+                        <!-- El contenido se inyecta por JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script de lógica de datos -->
+    <script src="app.js"></script>
+</body>
+</html>

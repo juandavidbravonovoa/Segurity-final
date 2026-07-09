@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Informes - Ciberseguridad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Iconos/informe-de-venta.png">
+    <!-- Librería externa para exportar a PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Menú Lateral -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="Logo/seguridad-mundial.png" alt="Logo Ciberseguridad">
+            <h2>Marco de Seguridad</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="amenazas.html">DETALLES DE AMENAZAS</a></li>
+                <!-- Ahora "Informes" tiene la clase activa -->
+                <li><a href="informes.html" class="active">INFORMES</a></li>
+                <li><a href="integrantes.html">AUTOR</a></li>
+                <li><a href="informacion.html">INFORMACION</a></li>
+            </ul>
+        </nav>
+
+             <div class="contact-info">
+                <h4 class="contact-title">Nuestros Contactos</h4>
+                
+            <div class="contact-item">
+                <img src="Logo/telefono.png" alt="telefono">
+                <span>+51 987 874 763</span></div>
+                <div class="contact-item">
+                    <img src="Logo/gmail.png" alt="gmail">
+                <span>soporte@gmail.com</span></div>
+        </div>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="content">
+        <header>
+            <h1>Generador de Informes de Auditoría</h1>
+            <p>Filtra y exporta documentos de seguridad</p>
+        </header>
+
+        <!-- Controles de Filtro -->
+        <div class="card full-width">
+            <h3>Marco para Filtros y Exportación</h3>
+            <div class="filter-bar" style="align-items: center;">
+                <label>Desde: <input type="date" id="dateStart"></label>
+                <label>Hasta: <input type="date" id="dateEnd"></label>
+                <select id="severityFilter" style="padding: 10px; border-radius: 8px; border: 1px solid #E2E8F0;">
+                    <option value="todas">Todas las Severidades</option>
+                    <option value="alta">Alta</option>
+                    <option value="media">Media</option>
+                    <option value="baja">Baja</option>
+                </select>
+                <button id="btnGenerate" class="btn-primary">Generar Vista Previa</button>
+                <button id="btnExportPDF" class="btn-action" style="display: none;">📄 Descargar PDF</button>
+            </div>
+        </div>
+
+        <!-- Contenedor del Informe (Se oculta hasta que se genera) -->
+        <div class="card full-width" id="reportPreviewContainer" style="display: none; margin-top: 20px;">
+            <!-- Este es el div exacto que se convertirá en PDF -->
+            <div id="reportContent" style="padding: 20px; background: white;">
+                <h2 style="color: #2B3674; margin-bottom: 10px;">Reporte de Auditoría de Ciberseguridad</h2>
+                <p id="reportMeta" style="color: #A3AED0; margin-bottom: 20px; font-size: 0.9rem;"></p>
+                <hr style="border: 0; border-top: 1px solid #E2E8F0; margin-bottom: 20px;">
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>IP Afectada</th>
+                            <th>Tipo de Vulnerabilidad</th>
+                            <th>Severidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportTableBody">
+                        <!-- Los datos filtrados se insertan aquí -->
+                    </tbody>
+                </table>
+                <p style="margin-top: 30px; font-size: 0.8rem; color: gray; text-align: right;">
+                    Documento generado automáticamente por el Sistema de Monitoreo.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script de lógica de informes -->
+    <script src="informes.js"></script>
+</body>
+</html>
